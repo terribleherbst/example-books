@@ -15,14 +15,16 @@ apply plugin: "idea"
 apply plugin: "eclipse"
 
 repositories {
-  jcenter()
-  maven { url 'http://clinker.netty.io/nexus/content/repositories/snapshots' }
-  maven { url "https://oss.jfrog.org/repo" }
-  maven { url "https://nexus.codehaus.org/content/repositories/snapshots/" }
+    jcenter()
+    maven { url 'http://clinker.netty.io/nexus/content/repositories/snapshots' }
+    maven { url "https://oss.jfrog.org/repo" }
+    maven { url "https://nexus.codehaus.org/content/repositories/snapshots/" }
+    maven { url 'http://repo.spring.io/repo/' }
 }
 
 dependencies {
   // springloaded "org.springframework:springloaded:1.2.1.RELEASE"
+    springloaded "org.springframework:springloaded:1.2.2.BUILD-SNAPSHOT"
 
   compile ratpack.dependency("config")
   compile ratpack.dependency("h2")
