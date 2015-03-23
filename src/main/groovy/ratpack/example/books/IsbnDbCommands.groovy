@@ -39,7 +39,9 @@ class IsbnDbCommands {
 
             @Override
             protected Observable<String> getFallback() {
-                return Observable.just('{"data" : [{"title" : "Groovy in Action", "publisher_name" : "Manning Publications", "author_data" : [{"id" : "dierk_koenig", "name" : "Dierk Koenig"}]}]}')
+                return Observable.just('{"data" : [{"title" : "Groovy in Action",' +
+                        ' "publisher_name" : "Manning Publications",' +
+                        ' "author_data" : [{"id" : "dierk_koenig", "name" : "Dierk Koenig"}]}]}')
             }
 
             @Override

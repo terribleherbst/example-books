@@ -65,7 +65,14 @@ ratpack {
             void onStart(StartEvent event) throws Exception {
                 log.info "Initializing RX"
                 RxRatpack.initialize()
-                event.registry.get(BookService).createTable()
+
+                BookService bookService = event.registry.get(BookService)
+                bookService.createTable()
+                bookService.init("1932394842",100,new BigDecimal("29.99"))
+                bookService.init("0471329304",27,new BigDecimal("29.99"))
+                bookService.init("1449316387",1,new BigDecimal("29.99"))
+                bookService.init("0974514004",2,new BigDecimal("29.99"))
+
             }
         }
 
@@ -75,6 +82,8 @@ ratpack {
     handlers { BookService bookService ->
         handler(RequestId.bindAndLog()) // log all requests
 
+
+        /*
         get {
             bookService.all().toList().subscribe { List<Book> books ->
                 def isbndbApikey = context.get(IsbndbConfig).apikey
@@ -86,6 +95,7 @@ ratpack {
                         msg: request.queryParams.msg ?: "")
             }
         }
+        */
 
         handler("create") {
             byMethod {
@@ -181,5 +191,6 @@ ratpack {
 
         assets "public"
     }
+
 
 }

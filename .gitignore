@@ -8,4 +8,9 @@ out
 .project
 .classpath
 *.log
-*.log.gz
+*.log.gzisbndb.host=http://isbndb.com
+isbndb.apikey=GTE3OSYT
+
+metrics.jvmMetrics=true
+metrics.jmx.enabled=true
+metrics.webSocket.reporterInterval=PT30S

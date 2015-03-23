@@ -1,0 +1,21 @@
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Quantity</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="book in books">
+        <td>{{book.title}}</td>
+        <td>{{book.isbn}}</td>
+        <td>{{book.quantity}}</td>
+        <td>
+            <a href="" ng-click="showBook(book.isbn)" class="btn btn-default">Details</a>
+        </td>
+    </tr>
+    </tbody>
+</table>

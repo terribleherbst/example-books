@@ -1,0 +1,17 @@
+<h2>{{bookDetail.title}}</h2>
+<p>{{bookDetail.author}}</p>
+<form novalidate>
+    <div class="form-group">
+        <label class="control-label">Quantity</label>
+        <input type="text" placeholder="Type something…" ng-model="bookDetail.quantity" class="form-control" >
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Price</label>
+        <input type="text" placeholder="Type something…" ng-model="bookDetail.price" class="form-control">
+    </div>
+
+    <button type="submit" class="btn" ng-click="updateBook(bookDetail)">Submit</button>
+</form>
+
+<a href="" ng-click="listBooks()">Return to the book list</a>

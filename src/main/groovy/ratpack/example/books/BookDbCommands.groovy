@@ -28,6 +28,10 @@ class BookDbCommands {
         sql.executeInsert("create table books (isbn varchar(13) primary key, quantity int, price numeric(15, 2))")
     }
 
+    void init(final String isbn, final long quantity, final BigDecimal price) {
+        sql.executeInsert("insert into books (isbn, quantity, price) values ($isbn, $quantity, $price)")
+    }
+
     rx.Observable<GroovyRowResult> getAll() {
         return new HystrixObservableCommand<GroovyRowResult>(
             HystrixObservableCommand.Setter.withGroupKey(hystrixCommandGroupKey).andCommandKey(HystrixCommandKey.Factory.asKey("getAll"))) {
@@ -78,6 +82,7 @@ class BookDbCommands {
     }
 
     rx.Observable<Void> update(final String isbn, final long quantity, final BigDecimal price) {
+        println "Updating $isbn to $quantity and $price"
         return new HystrixObservableCommand<Void>(
             HystrixObservableCommand.Setter.withGroupKey(hystrixCommandGroupKey).andCommandKey(HystrixCommandKey.Factory.asKey("update"))) {
 

@@ -1,9 +1,7 @@
 package ratpack.example.books
-
 import groovy.json.JsonSlurper
 import groovy.sql.GroovyRowResult
 import groovy.util.logging.Slf4j
-import ratpack.http.client.ReceivedResponse
 import rx.Observable
 
 import javax.inject.Inject
@@ -23,6 +21,10 @@ class BookService {
     void createTable() {
         log.info("Creating database tables")
         bookDbCommands.createTables()
+    }
+
+    void init(final String isbn, final long quantity, final BigDecimal price) {
+        bookDbCommands.init(isbn,quantity,price)
     }
 
     Observable<Book> all() {
